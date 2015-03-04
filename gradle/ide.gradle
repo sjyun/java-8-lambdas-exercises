@@ -1,0 +1,26 @@
+apply plugin:'idea'
+apply plugin:'eclipse'
+
+
+eclipse{
+    classpath{
+        downloadSources = true
+        defaultOutputDir = file("${buildDir}/classes/main")
+    }
+    jdt{
+			sourceCompatibility = 1.8
+			targetCompatibility = 1.8
+		}
+
+}
+
+
+  idea{
+	 module{
+		  downloadSources = true
+	  }
+  }
+
+
+   tasks.eclipse.dependsOn cleanEclipse
+   tasks.idea.dependsOn cleanIdea
